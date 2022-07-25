@@ -410,7 +410,8 @@ class Simple_Local_Avatars {
 		if ( 'http' !== substr( $local_avatars[ $size ], 0, 4 ) ) {
 			$local_avatars[ $size ] = home_url( $local_avatars[ $size ] );
 		}
-
+		$local_avatars[ $size ] = str_replace( '/s3://central', '', $local_avatars[ $size ] );
+		$local_avatars[ $size ] = str_replace( '//ams', '//asset.ams', $local_avatars[ $size ] );
 		return esc_url( $local_avatars[ $size ] );
 	}
 
